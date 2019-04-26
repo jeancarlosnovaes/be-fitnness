@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { View } from 'react-native';
+import { View } from "react-native";
 
 // import { Container } from './styles';
 
 export default class components extends Component {
-  render() {
-    return <View />;
-  }
+	render() {
+		return <View />;
+	}
 }
