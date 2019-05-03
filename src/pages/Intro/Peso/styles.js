@@ -56,6 +56,25 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 
+	weightInfo: {
+		flexDirection: "row",
+	},
+
+	weightBigText: {
+		fontStyle: "normal",
+		fontWeight: "300",
+		fontSize: 34,
+	},
+
+	weightSmallText: {
+		top: 20,
+		left: 10,
+		height: 20,
+		fontStyle: "normal",
+		fontWeight: "300",
+		fontSize: 14,
+	},
+
 	button: {
 		flexDirection: "row",
 		borderTopColor: "#DFDFE6",

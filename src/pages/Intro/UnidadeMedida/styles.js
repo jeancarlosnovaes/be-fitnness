@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
 
 	unitsView: {
 		flex: 1,
+		width: "100%",
 	},
 
 	button: {
@@ -85,16 +86,40 @@ const styles = StyleSheet.create({
 		fontSize: 15,
 		letterSpacing: 2,
 	},
+
 	unitsItem: {
 		borderBottomColor: "#DFDFE6",
 		borderBottomWidth: 2,
-		width: "100%",
+		left: 0,
+		right: 0,
+		bottom: 0,
+		top: 0,
+		marginLeft: 20,
 		paddingBottom: 10,
 		paddingTop: 10,
-		paddingLeft: 100,
-		paddingRight: 100,
+		paddingLeft: 10,
+	},
+	unitsText: {
+		fontStyle: "normal",
+		fontWeight: "normal",
+		fontSize: 15,
+		color: "#26262B",
+	},
+
+	buttonUnits: {
+		flexDirection: "row",
+		width: "100%",
+		height: 20,
+	},
+
+	unitsTextIcon: {
+		flex: 1,
+		alignItems: "flex-end",
+		marginRight: 10,
+	},
+	icon: {
+		color: "#5063EE",
 		justifyContent: "center",
-		alignItems: "stretch",
 	},
 });
 

@@ -9,7 +9,7 @@ import styles from "./styles";
 
 export default class Peso extends Component {
 	state = {
-		peso: 67.0,
+		peso: 67,
 	};
 
 	_handleNext = async () => {
@@ -49,14 +49,15 @@ export default class Peso extends Component {
 				</View>
 				<View style={styles.weightView}>
 					<View style={styles.container}>
-						<View>
-							<Text>{this.state.peso} kg</Text>
+						<View style={styles.weightInfo}>
+							<Text style={styles.weightBigText}>
+								{this.state.peso}
+							</Text>
+							<Text style={styles.weightSmallText}>kg</Text>
 						</View>
 						<RNListSlider
 							value={this.state.peso}
-							onValueChange={value =>
-								this.setState({ peso: value })
-							}
+							onValueChange={peso => this.setState({ peso })}
 							mainContainerStyle={styles.mainContainerStyle}
 							thumbStyle={styles.thumbStyle}
 							itemStyle={styles.itemStyle}

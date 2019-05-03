@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, TouchableOpacity, Image, StatusBar } from "react-native";
 
-// import Peso from "./Peso";
-// import Idade from "./Idade";
-// import Sexo from "./Sexo";
-// import Altura from "./Altura";
-// import UnidadeMedida from "./UnidadeMedida";
-
 import styles from "./styles";
 
 export default class Intro extends Component {

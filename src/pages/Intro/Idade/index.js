@@ -9,7 +9,7 @@ import styles from "./styles";
 
 export default class Idade extends Component {
 	state = {
-		idade: 0,
+		idade: 25,
 	};
 
 	_handleNext = async () => {
@@ -86,9 +86,6 @@ export default class Idade extends Component {
 							44,
 							45,
 							46,
-							44,
-							45,
-							46,
 							47,
 							48,
 							49,
@@ -96,6 +93,7 @@ export default class Idade extends Component {
 							51,
 							52,
 							53,
+							54,
 							55,
 							56,
 							57,
@@ -122,9 +120,28 @@ export default class Idade extends Component {
 							78,
 							79,
 							80,
+							81,
+							82,
+							83,
+							84,
+							85,
+							86,
+							87,
+							88,
+							89,
+							90,
+							91,
+							92,
+							93,
+							94,
+							95,
+							96,
+							97,
+							98,
+							99,
+							100,
 						]}
 						selectedIndex={15}
-						renderItem={(data, index, isSelected) => {}}
 						onValueChange={(data, selectedIndex) => {
 							this.setState({ idade: data });
 						}}

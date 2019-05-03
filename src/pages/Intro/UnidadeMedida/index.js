@@ -9,14 +9,17 @@ import styles from "./styles";
 export default class UnidadeMedida extends Component {
 	state = {
 		unidademedida: "",
+		isCheckingMetric: false,
+		isCheckingEnglish: false,
 	};
 
 	_handleNext = async () => {
 		const { unidademedida } = this.state;
 
-		// if (!unidademedida.length) {
-		// 	return;
-		// }
+		if (!unidademedida.length) {
+			return;
+		}
+
 		if (unidademedida.length) {
 			try {
 				await AsyncStorage.setItem(
@@ -34,6 +37,22 @@ export default class UnidadeMedida extends Component {
 		this.props.navigation.navigate("Idade");
 	};
 
+	_chekingEnglish = () => {
+		this.setState({
+			isCheckingEnglish: true,
+			unidademedida: "english",
+			isCheckingMetric: false,
+		});
+	};
+
+	_chekingMetric = () => {
+		this.setState({
+			isCheckingMetric: true,
+			unidademedida: "metric",
+			isCheckingEnglish: false,
+		});
+	};
+
 	render() {
 		return (
 			<View style={styles.container}>
@@ -48,12 +67,46 @@ export default class UnidadeMedida extends Component {
 					</Text>
 				</View>
 				<View style={styles.unitsView}>
-					<TouchableOpacity style={styles.unitsItem}>
-						<Text>Metric (kg, cm)</Text>
-					</TouchableOpacity>
-					<TouchableOpacity style={styles.unitsItem}>
-						<Text>Metric (kg, cm)</Text>
-					</TouchableOpacity>
+					<View style={styles.unitsItem}>
+						<TouchableOpacity
+							style={styles.buttonUnits}
+							onPress={this._chekingEnglish}
+						>
+							<Text style={styles.unitsText}>
+								English (lbs, pounds)
+							</Text>
+							<View style={styles.unitsTextIcon}>
+								{this.state.isCheckingEnglish ? (
+									<Icon
+										name="ios-checkmark"
+										size={24}
+										color="#5063EE"
+										style={styles.icon}
+									/>
+								) : null}
+							</View>
+						</TouchableOpacity>
+					</View>
+					<View style={styles.unitsItem}>
+						<TouchableOpacity
+							style={styles.buttonUnits}
+							onPress={this._chekingMetric}
+						>
+							<Text style={styles.unitsText}>
+								Metric (kg, cm){" "}
+							</Text>
+							<View style={styles.unitsTextIcon}>
+								{this.state.isCheckingMetric ? (
+									<Icon
+										name="ios-checkmark"
+										size={24}
+										color="#5063EE"
+										style={styles.icon}
+									/>
+								) : null}
+							</View>
+						</TouchableOpacity>
+					</View>
 				</View>
 				<View style={styles.button}>
 					<View style={styles.buttonBack}>
