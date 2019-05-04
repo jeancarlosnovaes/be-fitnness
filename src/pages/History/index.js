@@ -8,8 +8,8 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 export default class History extends Component {
 	static navigationOptions = ({ navigation }) => {
 		return {
-			tabBarIcon: () => (
-				<Icon name="calendar" size={20} color="#23253A" />
+			tabBarIcon: ({ tintColor }) => (
+				<Icon name="calendar" size={20} color={tintColor} />
 			),
 		};
 	};

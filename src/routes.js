@@ -30,19 +30,19 @@ const Routes = createAppContainer(
 		SignUp,
 		Home: createBottomTabNavigator(
 			{
-				Home,
-				Statistics,
-				History,
-				PlansLibrary,
+				Ínicio: { screen: Home },
+				Statistics: { screen: Statistics },
+				History: { screen: History },
+				Plans: { screen: PlansLibrary },
 			},
 			{
 				tabBarOptions: {
 					initialRouteName: "Home",
-					activeTintColor: "#23253A",
-					inactiveTintColor: "#ff0",
+					activeTintColor: "#000",
+					inactiveTintColor: "#979797",
 					barStyle: { backgroundColor: "#fff" },
-					tabStyle: { paddingBottom: 16 },
-					showLabel: false,
+					tabStyle: { padding: 5 },
+					showLabel: true,
 					showIcon: true,
 				},
 			},

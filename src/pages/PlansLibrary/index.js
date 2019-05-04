@@ -8,8 +8,8 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 export default class PlansLibrary extends Component {
 	static navigationOptions = ({ navigation }) => {
 		return {
-			tabBarIcon: () => (
-				<Icon name="clipboard-text-outline" size={20} color="#000" />
+			tabBarIcon: ({ tintColor }) => (
+				<Icon name="clipboard-text-outline" size={20} color={tintColor} />
 			),
 		};
 	};

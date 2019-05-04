@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
 		maxHeight: 99,
 		borderBottomColor: "#DFDFE6",
 		borderBottomWidth: 1,
-		paddingBottom: 10,
+		paddingBottom: 5,
 	},
 
 	date: {
@@ -224,22 +224,131 @@ const styles = StyleSheet.create({
 
 	myWorkouts: {
 		flex: 1,
-		maxHeight: 327,
+	},
+
+	myWorkoutsLabels: {
+		flexDirection: "row",
+		marginTop: 10,
+		marginLeft: 10,
+		marginRight: 10,
+	},
+
+	myWorkoutsLabelLeft: {
+		fontStyle: "normal",
+		fontWeight: "normal",
+		fontSize: 13,
+		letterSpacing: 1,
+		color: "#26262B",
+		opacity: 0.7,
+		textTransform: "uppercase",
+	},
+
+	myWorkoutsLabelButton: {
+		flex: 1,
+		flexDirection: "row",
+		justifyContent: "flex-end",
+	},
+
+	myWorkoutsButtonText: {
+		fontStyle: "normal",
+		fontWeight: "normal",
+		fontSize: 15,
+		textAlign: "right",
+		color: "#5063EE",
+	},
+
+	myWorkoutsCard: {
+		maxHeight: 400,
 		borderRadius: 2,
-		borderWidth: 1,
-		borderColor: "#23253A",
+		borderWidth: 0,
+		marginTop: 2,
+		marginBottom: 10,
+		marginLeft: 10,
+		marginRight: 10,
+	},
+
+	myWorkoutsCardTitle: {
+		padding: 10,
+	},
+
+	myWorkoutsCardTitleText: {
+		fontStyle: "normal",
+		fontWeight: "normal",
+		fontSize: 24,
+		color: "#FFFFFF",
+	},
+
+	myWorkoutsCardDate: {
+		fontStyle: "normal",
+		fontWeight: "300",
+		fontSize: 14,
+		color: "#fff",
+		opacity: 0.7,
+	},
+
+	myWorkoutsCardChart: {
+		flexDirection: "row",
+		height: 200,
+		paddingVertical: 16,
+	},
+
+	myWorkoutsCardFotter: {
+		flexDirection: "row",
+	},
+
+	myWorkoutsCardInfo: {
 		margin: 10,
+	},
+
+	myWorkoutsCardFotterInfoNumber: {
+		fontStyle: "normal",
+		fontWeight: "normal",
+		fontSize: 28,
+		textAlign: "center",
+		color: "#FFFFFF",
+	},
+
+	myWorkoutsCardFotterInfoText: {
+		fontStyle: "normal",
+		fontWeight: "300",
+		fontSize: 14,
+		textAlign: "center",
+		color: "#FFFFFF",
+		opacity: 0.7,
 	},
 
 	myWorkoutsInfoText: {
 		fontStyle: "normal",
 		fontWeight: "300",
 		fontSize: 14,
-		lineHeight: 17,
 		textAlign: "center",
 		color: "#26262B",
 		margin: 10,
 		padding: 5,
+	},
+
+	myWorkoutsCardButton: {
+		flex: 1,
+		alignSelf: "flex-end",
+		margin: 10,
+	},
+
+	myWorkoutsCardButtonRight: {
+		margin: 10,
+		paddingTop: 20,
+		paddingBottom: 20,
+		paddingLeft: 60,
+		paddingRight: 60,
+	},
+
+	myWorkoutsCardButtonRightText: {
+		fontStyle: "normal",
+		fontWeight: "500",
+		fontSize: 15,
+		textAlign: "center",
+		letterSpacing: 2,
+		color: "#fff",
+		textTransform: "uppercase",
 	},
 
 	createWorkouts: {

@@ -1,20 +1,31 @@
 import React, { Component } from "react";
 
 import { View, ScrollView, Text, TouchableOpacity } from "react-native";
+
 import Icon from "react-native-vector-icons/Ionicons";
+import LinearGradient from "react-native-linear-gradient";
+import { BarChart, Grid, YAxis } from "react-native-svg-charts";
+import * as scale from "d3-scale";
 
 import styles from "./styles";
 
 export default class Home extends Component {
 	static navigationOptions = ({ navigation }) => {
 		return {
-			tabBarIcon: () => <Icon name="ios-home" size={20} color="#000" />,
+			tabBarIcon: ({ tintColor }) => (
+				<Icon name="ios-home" size={20} color={tintColor} />
+			),
 		};
 	};
 
 	render() {
+		const data = [20, -30, 50, 40, 80, 100];
+
 		return (
-			<ScrollView style={styles.container}>
+			<ScrollView
+				style={styles.container}
+				showsVerticalScrollIndicator={false}
+			>
 				<View style={styles.title}>
 					<Text style={styles.titleText}>Dashboard</Text>
 					<View style={styles.buttonView}>
@@ -82,7 +93,98 @@ export default class Home extends Component {
 					</View>
 				</View>
 				<View style={styles.myWorkouts}>
-					<Text />
+					<View style={styles.myWorkoutsLabels}>
+						<Text style={styles.myWorkoutsLabelLeft}>
+							My Workouts
+						</Text>
+						<View style={styles.myWorkoutsLabelButton}>
+							<TouchableOpacity onPress={() => {}}>
+								<Text style={styles.myWorkoutsButtonText}>
+									Show All
+								</Text>
+							</TouchableOpacity>
+						</View>
+					</View>
+					<LinearGradient
+						colors={["#23253A", "#5063EE"]}
+						style={styles.myWorkoutsCard}
+					>
+						<View style={styles.myWorkoutsCardTitle}>
+							<Text style={styles.myWorkoutsCardTitleText}>
+								Chest & Back
+							</Text>
+							<Text style={styles.myWorkoutsCardDate}>
+								Mon, May 8
+							</Text>
+						</View>
+						<View style={styles.myWorkoutsCardChart}>
+							<YAxis
+								style={{ marginLeft: 5 }}
+								data={data}
+								yAccessor={({ item }) => item}
+								scale={scale.scaleBand}
+								formatLabel={(item, index) => item}
+								svg={{
+									fill: "#fff",
+									fontSize: 10,
+									textAlign: "left",
+									opacity: 0.7,
+								}}
+							/>
+							<BarChart
+								style={{ flex: 1, marginLeft: 5 }}
+								data={data}
+								horizontal={false}
+								yAccessor={({ item }) => item}
+								svg={{
+									fill: "#7081FF",
+									fillRule: "evenodd",
+								}}
+								contentInset={{
+									top: 5,
+									bottom: 5,
+									left: 5,
+									right: 5,
+								}}
+								spacing={0.2}
+								animate={true}
+								animationDuration={300}
+							/>
+						</View>
+						<View style={styles.myWorkoutsCardFotter}>
+							<View style={styles.myWorkoutsCardInfo}>
+								<Text
+									style={
+										styles.myWorkoutsCardFotterInfoNumber
+									}
+								>
+									7
+								</Text>
+								<Text
+									style={styles.myWorkoutsCardFotterInfoText}
+								>
+									times completed
+								</Text>
+							</View>
+							<LinearGradient
+								colors={["#23253A", "#5063EE"]}
+								style={styles.myWorkoutsCardButton}
+							>
+								<TouchableOpacity
+									style={styles.myWorkoutsCardButtonRight}
+									onPress={() => {}}
+								>
+									<Text
+										style={
+											styles.myWorkoutsCardButtonRightText
+										}
+									>
+										Start
+									</Text>
+								</TouchableOpacity>
+							</LinearGradient>
+						</View>
+					</LinearGradient>
 				</View>
 				<View style={styles.myWorkoutsInfo}>
 					<Text style={styles.myWorkoutsInfoText}>

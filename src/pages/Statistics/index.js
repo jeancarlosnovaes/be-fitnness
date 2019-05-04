@@ -8,7 +8,9 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 export default class Statistics extends Component {
 	static navigationOptions = ({ navigation }) => {
 		return {
-			tabBarIcon: () => <Icon name="chart-bar" size={20} color="#000" />,
+			tabBarIcon: ({ tintColor }) => (
+				<Icon name="chart-bar" size={20} color={tintColor} />
+			),
 		};
 	};
 	render() {
