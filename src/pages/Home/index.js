@@ -19,7 +19,44 @@ export default class Home extends Component {
 	};
 
 	render() {
-		const data = [20, -30, 50, 40, 80, 100];
+		const data = [
+			{
+				value: 100,
+				svg: {
+					fill: "#5063EE",
+				},
+			},
+			{
+				value: 20,
+				svg: {
+					fill: "#7081FF",
+				},
+			},
+			{
+				value: 30,
+				svg: {
+					fill: "#5063EE",
+				},
+			},
+			{
+				value: 50,
+				svg: {
+					fill: "#7081FF",
+				},
+			},
+			{
+				value: 40,
+				svg: {
+					fill: "#5063EE",
+				},
+			},
+			{
+				value: 80,
+				svg: {
+					fill: "#7081FF",
+				},
+			},
+		];
 
 		return (
 			<ScrollView
@@ -121,32 +158,30 @@ export default class Home extends Component {
 							<YAxis
 								style={{ marginLeft: 5 }}
 								data={data}
-								yAccessor={({ item }) => item}
-								scale={scale.scaleBand}
-								formatLabel={(item, index) => item}
+								yAccessor={({ item }) => item.value}
+								contentInset={{ top: 8, bottom: 8 }}
+								numberOfTicks={4}
 								svg={{
-									fill: "#fff",
-									fontSize: 10,
+									fill: "#FEFEFE",
+									fontSize: 12,
 									textAlign: "left",
-									opacity: 0.7,
+									opacity: 0.6,
 								}}
 							/>
 							<BarChart
 								style={{ flex: 1, marginLeft: 5 }}
 								data={data}
 								horizontal={false}
-								yAccessor={({ item }) => item}
-								svg={{
-									fill: "#7081FF",
-									fillRule: "evenodd",
-								}}
+								yAccessor={({ item }) => item.value}
+								gridMin={0}
+								spacingInner={0}
+								spacingOuter={0}
 								contentInset={{
 									top: 5,
 									bottom: 5,
 									left: 5,
 									right: 5,
 								}}
-								spacing={0.2}
 								animate={true}
 								animationDuration={300}
 							/>

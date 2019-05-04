@@ -153,7 +153,6 @@ const styles = StyleSheet.create({
 		maxHeight: 99,
 		borderBottomColor: "#DFDFE6",
 		borderBottomWidth: 1,
-		paddingBottom: 5,
 	},
 
 	date: {
@@ -335,10 +334,10 @@ const styles = StyleSheet.create({
 
 	myWorkoutsCardButtonRight: {
 		margin: 10,
-		paddingTop: 20,
-		paddingBottom: 20,
-		paddingLeft: 60,
-		paddingRight: 60,
+		paddingTop: 5,
+		paddingBottom: 5,
+		paddingLeft: 40,
+		paddingRight: 40,
 	},
 
 	myWorkoutsCardButtonRightText: {
@@ -358,10 +357,10 @@ const styles = StyleSheet.create({
 
 	buttonCreateWorkouts: {
 		backgroundColor: "#23253A",
-		paddingBottom: 10,
-		paddingTop: 10,
-		paddingLeft: 20,
-		paddingRight: 20,
+		paddingBottom: 20,
+		paddingTop: 20,
+		paddingLeft: 60,
+		paddingRight: 60,
 	},
 
 	buttonCreateWorkoutsText: {

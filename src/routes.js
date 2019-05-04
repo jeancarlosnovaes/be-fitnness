@@ -40,7 +40,7 @@ const Routes = createAppContainer(
 					initialRouteName: "Home",
 					activeTintColor: "#000",
 					inactiveTintColor: "#979797",
-					barStyle: { backgroundColor: "#fff" },
+					barStyle: { backgroundColor: "#fff", fontSize: 14 },
 					tabStyle: { padding: 5 },
 					showLabel: true,
 					showIcon: true,
