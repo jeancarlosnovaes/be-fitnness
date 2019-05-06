@@ -3,6 +3,7 @@ import {
 	createAppContainer,
 	createStackNavigator,
 	createBottomTabNavigator,
+	createMaterialTopTabNavigator,
 } from "react-navigation";
 
 import Login from "./pages/Login";
@@ -15,6 +16,7 @@ import Sexo from "./pages/Intro/Sexo";
 import UnidadeMedida from "./pages/Intro/UnidadeMedida";
 import Home from "./pages/Home";
 import Statistics from "./pages/Statistics";
+import StatisticsExerciseSpecific from "./pages/Statistics/StatisticsExerciseSpecific";
 import History from "./pages/History";
 import PlansLibrary from "./pages/PlansLibrary";
 
