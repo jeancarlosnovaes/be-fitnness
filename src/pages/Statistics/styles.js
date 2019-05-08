@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
 
 	statsChart: {
 		flex: 1,
+		marginTop: 20,
 	},
 
 	statsChartCard: {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, ScrollView, Text } from "react-native";
+import { createMaterialTopTabNavigator } from "react-navigation";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { BarChart, Grid, YAxis } from "react-native-svg-charts";
@@ -8,13 +9,15 @@ import * as scale from "d3-scale";
 import styles from "./styles";
 
 export default class Statistics extends Component {
-	static navigationOptions = ({ navigation }) => {
-		return {
-			tabBarIcon: ({ tintColor }) => (
-				<Icon name="chart-bar" size={20} color={tintColor} />
-			),
-		};
-	};
+	// static navigationOptions = ({ navigation }) => {
+	// 	return {
+	// 		tabBarIcon: ({ tintColor }) => (
+	// 			<Icon name="chart-bar" size={20} color={tintColor} />
+	// 		),
+	// 		headerTitle: "Oi",
+	// 	};
+	// };
+
 	render() {
 		const data = [
 			{
@@ -22,36 +25,42 @@ export default class Statistics extends Component {
 				svg: {
 					fill: "#5063EE",
 				},
+				month: "May",
 			},
 			{
 				value: 20,
 				svg: {
 					fill: "#7081FF",
 				},
+				month: "Jun",
 			},
 			{
 				value: 30,
 				svg: {
 					fill: "#5063EE",
 				},
+				month: "Jul",
 			},
 			{
 				value: 50,
 				svg: {
 					fill: "#7081FF",
 				},
+				month: "Aug",
 			},
 			{
 				value: 40,
 				svg: {
 					fill: "#5063EE",
 				},
+				month: "Sep",
 			},
 			{
 				value: 80,
 				svg: {
 					fill: "#7081FF",
 				},
+				month: "Oct",
 			},
 		];
 
@@ -60,9 +69,6 @@ export default class Statistics extends Component {
 				style={styles.container}
 				showsVerticalScrollIndicator={false}
 			>
-				<View style={styles.title}>
-					<Text style={styles.titleText}>Stats</Text>
-				</View>
 				<View style={styles.statsChart}>
 					<View style={styles.statsChartCard}>
 						<View style={styles.statsChartCardTitle}>
@@ -94,11 +100,13 @@ export default class Statistics extends Component {
 									opacity: 0.6,
 								}}
 							/>
+
 							<BarChart
 								style={{ flex: 1, marginLeft: 5 }}
 								data={data}
 								horizontal={false}
 								yAccessor={({ item }) => item.value}
+								valueAccessor={({ item }) => item.month}
 								gridMin={0}
 								spacingInner={0}
 								spacingOuter={0}
@@ -110,7 +118,9 @@ export default class Statistics extends Component {
 								}}
 								animate={true}
 								animationDuration={300}
-							/>
+							>
+								<Grid />
+							</BarChart>
 						</View>
 					</View>
 				</View>
