@@ -264,6 +264,7 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 		marginLeft: 10,
 		marginRight: 10,
+		backgroundColor: "#23253A",
 	},
 
 	myWorkoutsCardTitle: {
@@ -286,9 +287,9 @@ const styles = StyleSheet.create({
 	},
 
 	myWorkoutsCardChart: {
-		flexDirection: "row",
-		height: 200,
-		paddingVertical: 16,
+		// flexDirection: "row",
+		// height: 200,
+		// paddingVertical: 16,
 	},
 
 	myWorkoutsCardFotter: {
@@ -338,6 +339,7 @@ const styles = StyleSheet.create({
 		paddingBottom: 5,
 		paddingLeft: 40,
 		paddingRight: 40,
+		backgroundColor: "#5063EE",
 	},
 
 	myWorkoutsCardButtonRightText: {

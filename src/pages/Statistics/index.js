@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { View, ScrollView, Text } from "react-native";
+import { View, ScrollView, Text, Dimensions } from "react-native";
 import { createMaterialTopTabNavigator } from "react-navigation";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { BarChart, Grid, YAxis } from "react-native-svg-charts";
-import * as scale from "d3-scale";
+
 
 import styles from "./styles";
 
@@ -19,50 +18,7 @@ export default class Statistics extends Component {
 	// };
 
 	render() {
-		const data = [
-			{
-				value: 100,
-				svg: {
-					fill: "#5063EE",
-				},
-				month: "May",
-			},
-			{
-				value: 20,
-				svg: {
-					fill: "#7081FF",
-				},
-				month: "Jun",
-			},
-			{
-				value: 30,
-				svg: {
-					fill: "#5063EE",
-				},
-				month: "Jul",
-			},
-			{
-				value: 50,
-				svg: {
-					fill: "#7081FF",
-				},
-				month: "Aug",
-			},
-			{
-				value: 40,
-				svg: {
-					fill: "#5063EE",
-				},
-				month: "Sep",
-			},
-			{
-				value: 80,
-				svg: {
-					fill: "#7081FF",
-				},
-				month: "Oct",
-			},
-		];
+		
 
 		return (
 			<ScrollView
@@ -87,40 +43,17 @@ export default class Statistics extends Component {
 							<Text style={styles.workoutUnits}>kg</Text>
 						</View>
 						<View style={styles.statsChartCardChart}>
-							<YAxis
-								style={{ marginLeft: 5 }}
-								data={data}
-								yAccessor={({ item }) => item.value}
-								contentInset={{ top: 8, bottom: 8 }}
-								numberOfTicks={4}
-								svg={{
-									fill: "#FEFEFE",
-									fontSize: 12,
-									textAlign: "left",
-									opacity: 0.6,
+							{/* <BarChart
+								style={{
+									marginVertical: 8,
+									borderRadius: 16,
 								}}
-							/>
-
-							<BarChart
-								style={{ flex: 1, marginLeft: 5 }}
 								data={data}
-								horizontal={false}
-								yAccessor={({ item }) => item.value}
-								valueAccessor={({ item }) => item.month}
-								gridMin={0}
-								spacingInner={0}
-								spacingOuter={0}
-								contentInset={{
-									top: 5,
-									bottom: 5,
-									left: 5,
-									right: 5,
-								}}
-								animate={true}
-								animationDuration={300}
-							>
-								<Grid />
-							</BarChart>
+								width={Dimensions.get("window").width}
+								height={220}
+								yAxisLabel={"$"}
+								chartConfig={chartConfig}
+							/> */}
 						</View>
 					</View>
 				</View>

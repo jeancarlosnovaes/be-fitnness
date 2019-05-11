@@ -2,11 +2,21 @@ import React, { Component } from "react";
 import { View, ScrollView, Text, TouchableOpacity } from "react-native";
 
 import Icon from "react-native-vector-icons/Ionicons";
-import LinearGradient from "react-native-linear-gradient";
-import { BarChart, Grid, YAxis } from "react-native-svg-charts";
-import * as scale from "d3-scale";
+import {
+	VictoryBar,
+	VictoryChart,
+	VictoryTheme,
+	VictoryAxis,
+} from "victory-native";
 
 import styles from "./styles";
+
+const data = [
+	{ quarter: 1, earnings: 13000 },
+	{ quarter: 2, earnings: 16500 },
+	{ quarter: 3, earnings: 14250 },
+	{ quarter: 4, earnings: 19000 },
+];
 
 export default class Home extends Component {
 	static navigationOptions = ({ navigation }) => {
@@ -18,45 +28,6 @@ export default class Home extends Component {
 	};
 
 	render() {
-		const data = [
-			{
-				value: 100,
-				svg: {
-					fill: "#5063EE",
-				},
-			},
-			{
-				value: 20,
-				svg: {
-					fill: "#7081FF",
-				},
-			},
-			{
-				value: 30,
-				svg: {
-					fill: "#5063EE",
-				},
-			},
-			{
-				value: 50,
-				svg: {
-					fill: "#7081FF",
-				},
-			},
-			{
-				value: 40,
-				svg: {
-					fill: "#5063EE",
-				},
-			},
-			{
-				value: 80,
-				svg: {
-					fill: "#7081FF",
-				},
-			},
-		];
-
 		return (
 			<ScrollView
 				style={styles.container}
@@ -141,10 +112,7 @@ export default class Home extends Component {
 							</TouchableOpacity>
 						</View>
 					</View>
-					<LinearGradient
-						colors={["#23253A", "#5063EE"]}
-						style={styles.myWorkoutsCard}
-					>
+					<View style={styles.myWorkoutsCard}>
 						<View style={styles.myWorkoutsCardTitle}>
 							<Text style={styles.myWorkoutsCardTitleText}>
 								Chest & Back
@@ -154,36 +122,49 @@ export default class Home extends Component {
 							</Text>
 						</View>
 						<View style={styles.myWorkoutsCardChart}>
-							<YAxis
-								style={{ marginLeft: 5 }}
-								data={data}
-								yAccessor={({ item }) => item.value}
-								contentInset={{ top: 8, bottom: 8 }}
-								numberOfTicks={4}
-								svg={{
-									fill: "#FEFEFE",
-									fontSize: 12,
-									textAlign: "left",
-									opacity: 0.6,
-								}}
-							/>
-							<BarChart
-								style={{ flex: 1, marginLeft: 5 }}
-								data={data}
-								horizontal={false}
-								yAccessor={({ item }) => item.value}
-								gridMin={0}
-								spacingInner={0}
-								spacingOuter={0}
-								contentInset={{
-									top: 5,
-									bottom: 5,
-									left: 5,
-									right: 5,
-								}}
-								animate={true}
-								animationDuration={300}
-							/>
+							<VictoryChart
+								width={350}
+								height={250}
+								theme={VictoryTheme.material}
+								domainPadding={{ x: 25 }}
+								padding={60}
+							>
+								<VictoryAxis
+									dependentAxis={true}
+									style={{
+										axis: {
+											stroke: "none",
+											strokeWidth: 1,
+										},
+										axisLabel: {
+											fontSize: 20,
+											color: "#fff",
+										},
+										grid: {
+											strokeDasharray: "",
+											strokeWidth: 1,
+											strokeOpacity: 0.25,
+											fill: "#fff",
+										},
+										ticks: {
+											padding: 0,
+											strokeWidth: 1,
+											strokeOpacity: 0.25,
+											stroke: "#fff",
+										},
+									}}
+								/>
+								<VictoryBar
+									data={data}
+									barWidth={52}
+									x="quarter"
+									y="earnings"
+									style={{
+										data: { fill: "#5063EE" },
+									}}
+									barRatio={0.1}
+								/>
+							</VictoryChart>
 						</View>
 						<View style={styles.myWorkoutsCardFotter}>
 							<View style={styles.myWorkoutsCardInfo}>
@@ -200,10 +181,7 @@ export default class Home extends Component {
 									times completed
 								</Text>
 							</View>
-							<LinearGradient
-								colors={["#23253A", "#5063EE"]}
-								style={styles.myWorkoutsCardButton}
-							>
+							<View style={styles.myWorkoutsCardButton}>
 								<TouchableOpacity
 									style={styles.myWorkoutsCardButtonRight}
 									onPress={() => {}}
@@ -216,9 +194,9 @@ export default class Home extends Component {
 										Start
 									</Text>
 								</TouchableOpacity>
-							</LinearGradient>
+							</View>
 						</View>
-					</LinearGradient>
+					</View>
 				</View>
 				<View style={styles.myWorkoutsInfo}>
 					<Text style={styles.myWorkoutsInfoText}>

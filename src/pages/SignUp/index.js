@@ -8,7 +8,6 @@ import {
 	Keyboard,
 	StatusBar,
 } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import AsyncStorage from "@react-native-community/async-storage";
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -60,72 +59,63 @@ export default class SignUp extends Component {
 
 	render() {
 		return (
-			<LinearGradient
-				colors={["#23253A", "#5063EE"]}
-				style={styles.linearGradient}
-			>
-				<View style={styles.container}>
-					<StatusBar
-						barStyle="light-content"
-						backgroundColor="#6a51ae"
-					/>
-					<View style={styles.viewText}>
-						<Text style={styles.text}>Sign Up</Text>
-					</View>
-					<View style={styles.form}>
-						<TextInput
-							style={styles.input}
-							placeholder="Username"
-							placeholderTextColor="#fff"
-							value={this.state.username}
-							spellCheck={false}
-							autoCorrect={false}
-							autoCapitalize="none"
-							maxLength={40}
-							onBlur={Keyboard.dismiss}
-							onChangeText={this._handleUsernameChange}
-						/>
-						<TextInput
-							style={styles.input}
-							placeholder="Email"
-							placeholderTextColor="#fff"
-							value={this.state.email}
-							spellCheck={false}
-							autoCorrect={false}
-							autoCapitalize="none"
-							keyboardType="email-address"
-							onBlur={Keyboard.dismiss}
-							onChangeText={this._handleEmailChange}
-						/>
-
-						<TextInput
-							style={styles.input}
-							placeholder="Password"
-							placeholderTextColor="#fff"
-							value={this.state.password}
-							spellCheck={false}
-							autoCorrect={false}
-							autoCapitalize="none"
-							onBlur={Keyboard.dismiss}
-							onChangeText={this._handlePasswordChange}
-						/>
-					</View>
-					<View style={styles.term}>
-						<Text style={styles.termText}>
-							By signing up you agree to our Terms and
-							PrivacyPolicy
-						</Text>
-					</View>
-					<View style={styles.button}>
-						<TouchableOpacity
-							onPress={this._handleSubmit}
-							style={styles.buttonSignUp}
-						>
-							<Text style={styles.buttonText}>Sign Up</Text>
-						</TouchableOpacity>
-					</View>
+			<View style={styles.container}>
+				<StatusBar barStyle="light-content" backgroundColor="#6a51ae" />
+				<View style={styles.viewText}>
+					<Text style={styles.text}>Sign Up</Text>
 				</View>
-			</LinearGradient>
+				<View style={styles.form}>
+					<TextInput
+						style={styles.input}
+						placeholder="Username"
+						placeholderTextColor="#fff"
+						value={this.state.username}
+						spellCheck={false}
+						autoCorrect={false}
+						autoCapitalize="none"
+						maxLength={40}
+						onBlur={Keyboard.dismiss}
+						onChangeText={this._handleUsernameChange}
+					/>
+					<TextInput
+						style={styles.input}
+						placeholder="Email"
+						placeholderTextColor="#fff"
+						value={this.state.email}
+						spellCheck={false}
+						autoCorrect={false}
+						autoCapitalize="none"
+						keyboardType="email-address"
+						onBlur={Keyboard.dismiss}
+						onChangeText={this._handleEmailChange}
+					/>
+
+					<TextInput
+						style={styles.input}
+						placeholder="Password"
+						placeholderTextColor="#fff"
+						value={this.state.password}
+						spellCheck={false}
+						autoCorrect={false}
+						autoCapitalize="none"
+						onBlur={Keyboard.dismiss}
+						onChangeText={this._handlePasswordChange}
+					/>
+				</View>
+				<View style={styles.term}>
+					<Text style={styles.termText}>
+						By signing up you agree to our Terms and PrivacyPolicy
+					</Text>
+				</View>
+				<View style={styles.button}>
+					<TouchableOpacity
+						onPress={this._handleSubmit}
+						style={styles.buttonSignUp}
+					>
+						<Text style={styles.buttonText}>Sign Up</Text>
+					</TouchableOpacity>
+				</View>
+			</View>
 		);
 	}
 }
