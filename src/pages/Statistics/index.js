@@ -1,32 +1,36 @@
 import React, { Component } from "react";
-import { View, ScrollView, Text, Dimensions } from "react-native";
+import {
+	View,
+	ScrollView,
+	Text,
+	Dimensions,
+	TouchableOpacity,
+} from "react-native";
 import { createMaterialTopTabNavigator } from "react-navigation";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-
 import styles from "./styles";
 
 export default class Statistics extends Component {
-	// static navigationOptions = ({ navigation }) => {
-	// 	return {
-	// 		tabBarIcon: ({ tintColor }) => (
-	// 			<Icon name="chart-bar" size={20} color={tintColor} />
-	// 		),
-	// 		headerTitle: "Oi",
-	// 	};
-	// };
+	_handleShowStatsDetails = () => {
+		this.props.navigation.navigate("StatsDetails");
+	};
 
 	render() {
-		
-
 		return (
 			<ScrollView
 				style={styles.container}
 				showsVerticalScrollIndicator={false}
 			>
+				<View style={styles.title}>
+					<Text style={styles.titleText}>Statistics</Text>
+				</View>
 				<View style={styles.statsChart}>
-					<View style={styles.statsChartCard}>
+					<TouchableOpacity
+						onPress={this._handleShowStatsDetails}
+						style={styles.statsChartCard}
+					>
 						<View style={styles.statsChartCardTitle}>
 							<Text style={styles.statsChartCardTitleText}>
 								Tonnage Lifted
@@ -55,7 +59,7 @@ export default class Statistics extends Component {
 								chartConfig={chartConfig}
 							/> */}
 						</View>
-					</View>
+					</TouchableOpacity>
 				</View>
 
 				<View style={styles.statsGlobal}>

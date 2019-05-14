@@ -1,11 +1,10 @@
 import React from "react";
-import { View, Text, Platform } from "react-native";
+
 import {
 	createSwitchNavigator,
 	createAppContainer,
 	createStackNavigator,
 	createBottomTabNavigator,
-	createMaterialTopTabNavigator,
 } from "react-navigation";
 
 import Login from "./pages/Login";
@@ -18,114 +17,106 @@ import Sexo from "./pages/Intro/Sexo";
 import UnidadeMedida from "./pages/Intro/UnidadeMedida";
 import Home from "./pages/Home";
 import Statistics from "./pages/Statistics";
-import StatisticsExerciseSpecific from "./pages/Statistics/StatisticsExerciseSpecific";
+import StatsDetails from "./pages/Statistics/StatsDetails";
 import History from "./pages/History";
 import PlansLibrary from "./pages/PlansLibrary";
+import MyWorkouts from "./pages/MyWorkouts";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-const TabsTopStats = createMaterialTopTabNavigator(
-	{
-		Global: {
-			screen: Statistics,
-			navigationOptions: {
-				title: "Global stats",
-			},
-		},
-		Specific: {
-			screen: StatisticsExerciseSpecific,
-			navigationOptions: {
-				title: "Exercise specific",
-			},
-		},
-	},
-	{
+const HomeStack = createStackNavigator({
+	Início: {
+		screen: Home,
 		navigationOptions: {
-			headerTitle: "Statistics",
-			headerTitleStyle: {
-				fontStyle: "normal",
-				fontWeight: "500",
-				fontSize: 30,
-				color: "#000",
-				marginLeft: 10,
-			},
-			headerStyle: {
-				elevation: 0,
-				// marginTop: 30,
-			},
-		},
-
-		tabBarOptions: {
-			initialRouteName: "Statistics",
-			activeTintColor: "#000",
-			inactiveTintColor: "#979797",
-			style: {
-				backgroundColor: "#fff",
-				borderBottomWidth: 0,
-				elevation: 0,
-			},
-			tabStyle: {
-				padding: 5,
-				// elevation: 0,
-			},
-			labelStyle: {
-				fontStyle: "normal",
-				fontWeight: "normal",
-				fontSize: 15,
-				color: "#26262B",
-				textTransform: "capitalize",
-			},
-			indicatorStyle: {
-				borderBottomColor: "#5063EE",
-				borderBottomWidth: 3,
-				borderEndColor: "#fff",
-			},
-			showLabel: true,
+			header: null,
 		},
 	},
-);
+	MyWorkouts,
+	// WorkoutsDetails,
+	// ExerciseDetails,
+	// PreviewsWorkouts,
+	// Profile,
+});
 
-const StackTabsTop = createStackNavigator({ TabsTopStats });
-
-const MainBottomTabs = createBottomTabNavigator(
-	{
-		Ínicio: { screen: Home },
-		Statistics: {
-			screen: StackTabsTop,
-			navigationOptions: ({ navigation }) => ({
-				tabBarIcon: ({ tintColor }) => (
-					<Icon name="chart-bar" size={20} color={tintColor} />
-				),
-			}),
-		},
-		History: { screen: History },
-		Plans: { screen: PlansLibrary },
-	},
-	{
-		tabBarOptions: {
-			initialRouteName: "Home",
-			activeTintColor: "#000",
-			inactiveTintColor: "#979797",
-			barStyle: { backgroundColor: "#fff", fontSize: 14 },
-			tabStyle: { padding: 5 },
-			showLabel: true,
-			showIcon: true,
+const StatsStack = createStackNavigator({
+	Statistics: {
+		screen: Statistics,
+		navigationOptions: {
+			header: null,
 		},
 	},
-);
+	StatsDetails,
+});
 
-const SwitchNavigator = createSwitchNavigator({
+const HistoryStack = createStackNavigator({
+	History: {
+		screen: History,
+		navigationOptions: {
+			header: null,
+		},
+	},
+});
+
+const PlansLibraryStack = createStackNavigator({
+	PlansLibrary: {
+		screen: PlansLibrary,
+		navigationOptions: {
+			header: null,
+		},
+	},
+});
+
+const MainTabs = createBottomTabNavigator({
+	Home: {
+		screen: HomeStack,
+		navigationOptions: () => ({
+			tabBarIcon: ({ tintColor }) => (
+				<Icon name="home" size={20} color={tintColor} />
+			),
+		}),
+	},
+	Stats: {
+		screen: StatsStack,
+		navigationOptions: () => ({
+			tabBarIcon: ({ tintColor }) => (
+				<Icon name="chart-bar" size={20} color={tintColor} />
+			),
+		}),
+	},
+	History: {
+		screen: HistoryStack,
+		navigationOptions: () => ({
+			tabBarIcon: ({ tintColor }) => (
+				<Icon name="calendar" size={20} color={tintColor} />
+			),
+		}),
+	},
+	Plans: {
+		screen: PlansLibraryStack,
+		navigationOptions: () => ({
+			tabBarIcon: ({ tintColor }) => (
+				<Icon
+					name="clipboard-text-outline"
+					size={20}
+					color={tintColor}
+				/>
+			),
+		}),
+	},
+});
+
+const AppNavigator = createSwitchNavigator({
 	Intro,
 	Sexo,
 	Idade,
-	UnidadeMedida,
-	Peso,
 	Altura,
-	Login,
+	Peso,
+	UnidadeMedida,
 	SignUp,
-	Home: MainBottomTabs,
+	Login,
+	App: MainTabs,
 });
 
-const Routes = createAppContainer(SwitchNavigator);
+const Routes = createAppContainer(AppNavigator);
 
 export default Routes;

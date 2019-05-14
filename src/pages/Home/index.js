@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import { View, ScrollView, Text, TouchableOpacity } from "react-native";
 
-import Icon from "react-native-vector-icons/Ionicons";
-import {
-	VictoryBar,
-	VictoryChart,
-	VictoryTheme,
-	VictoryAxis,
-} from "victory-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import styles from "./styles";
 
@@ -19,12 +13,8 @@ const data = [
 ];
 
 export default class Home extends Component {
-	static navigationOptions = ({ navigation }) => {
-		return {
-			tabBarIcon: ({ tintColor }) => (
-				<Icon name="ios-home" size={20} color={tintColor} />
-			),
-		};
+	_handleMyWorkouts = () => {
+		this.props.navigation.navigate("MyWorkouts");
 	};
 
 	render() {
@@ -41,7 +31,7 @@ export default class Home extends Component {
 							onPress={() => {}}
 						>
 							<Icon
-								name="ios-person"
+								name="account"
 								size={24}
 								style={styles.buttonIcon}
 							/>
@@ -92,7 +82,7 @@ export default class Home extends Component {
 					<View style={styles.previewsWorkoutIcon}>
 						<TouchableOpacity onPress={() => {}}>
 							<Icon
-								name="ios-arrow-forward"
+								name="chevron-right"
 								size={24}
 								style={styles.previewsIcon}
 							/>
@@ -105,7 +95,7 @@ export default class Home extends Component {
 							My Workouts
 						</Text>
 						<View style={styles.myWorkoutsLabelButton}>
-							<TouchableOpacity onPress={() => {}}>
+							<TouchableOpacity onPress={this._handleMyWorkouts}>
 								<Text style={styles.myWorkoutsButtonText}>
 									Show All
 								</Text>
@@ -121,51 +111,7 @@ export default class Home extends Component {
 								Mon, May 8
 							</Text>
 						</View>
-						<View style={styles.myWorkoutsCardChart}>
-							<VictoryChart
-								width={350}
-								height={250}
-								theme={VictoryTheme.material}
-								domainPadding={{ x: 25 }}
-								padding={60}
-							>
-								<VictoryAxis
-									dependentAxis={true}
-									style={{
-										axis: {
-											stroke: "none",
-											strokeWidth: 1,
-										},
-										axisLabel: {
-											fontSize: 20,
-											color: "#fff",
-										},
-										grid: {
-											strokeDasharray: "",
-											strokeWidth: 1,
-											strokeOpacity: 0.25,
-											fill: "#fff",
-										},
-										ticks: {
-											padding: 0,
-											strokeWidth: 1,
-											strokeOpacity: 0.25,
-											stroke: "#fff",
-										},
-									}}
-								/>
-								<VictoryBar
-									data={data}
-									barWidth={52}
-									x="quarter"
-									y="earnings"
-									style={{
-										data: { fill: "#5063EE" },
-									}}
-									barRatio={0.1}
-								/>
-							</VictoryChart>
-						</View>
+						<View style={styles.myWorkoutsCardChart} />
 						<View style={styles.myWorkoutsCardFotter}>
 							<View style={styles.myWorkoutsCardInfo}>
 								<Text

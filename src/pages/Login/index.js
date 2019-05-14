@@ -6,7 +6,7 @@ import styles from "./styles";
 
 export default class Login extends Component {
 	_handleSignUp = () => {
-		this.props.navigation.navigate("Home");
+		this.props.navigation.navigate("App");
 	};
 
 	render() {
