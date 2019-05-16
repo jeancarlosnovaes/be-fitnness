@@ -7,6 +7,19 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 
+	title: {
+		flexDirection: "row",
+		padding: 10,
+		marginTop: 5,
+	},
+
+	titleText: {
+		fontStyle: "normal",
+		fontWeight: "500",
+		fontSize: 30,
+		color: "#26262B",
+	},
+
 	myWorkouts: {
 		flex: 1,
 	},

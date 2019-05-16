@@ -28,6 +28,9 @@ export default class MyWorkouts extends Component {
 				style={styles.container}
 				showsVerticalScrollIndicator={false}
 			>
+				<View style={styles.title}>
+					<Text style={styles.titleText}>My Workouts</Text>
+				</View>
 				<View style={styles.myWorkouts}>
 					<TouchableOpacity
 						onPress={() => {}}

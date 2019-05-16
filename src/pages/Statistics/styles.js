@@ -7,6 +7,34 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 
+	tabs: {
+		flexDirection: "row",
+		marginHorizontal: 10,
+		borderBottomColor: "#979797",
+		borderBottomWidth: 1,
+	},
+
+	textTabsActive: {
+		marginRight: 20,
+		paddingVertical: 10,
+		fontStyle: "normal",
+		fontWeight: "normal",
+		fontSize: 15,
+		color: "#000",
+		borderBottomColor: "#5063EE",
+		borderBottomWidth: 3,
+	},
+
+	textTabsInactive: {
+		marginRight: 20,
+		paddingVertical: 10,
+		fontStyle: "normal",
+		fontWeight: "normal",
+		fontSize: 15,
+		color: "#26262B",
+		opacity: 0.4,
+	},
+
 	title: {
 		flexDirection: "row",
 		padding: 10,
