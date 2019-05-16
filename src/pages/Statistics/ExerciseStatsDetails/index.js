@@ -1,16 +1,22 @@
 import React, { Component } from "react";
+import { View, ScrollView, Text, TouchableOpacity } from "react-native";
 
-import { View, TouchableOpacity, Text, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import styles from "./styles";
 
-import styles from "../../Statistics/styles";
-
-export default class GLobalStats extends Component {
-
-
+export default class ExerciseStatsDetails extends Component {
+	_handleShowStatsDetails = () => {
+		this.props.navigation.navigate("StatsDetails");
+	};
 	render() {
 		return (
-			<View>
+			<ScrollView
+				style={styles.container}
+				showsVerticalScrollIndicator={false}
+			>
+				<View style={styles.title}>
+					<Text style={styles.titleText}>Bench Press</Text>
+				</View>
 				<View style={styles.statsChart}>
 					<TouchableOpacity
 						onPress={this._handleShowStatsDetails}
@@ -18,7 +24,7 @@ export default class GLobalStats extends Component {
 					>
 						<View style={styles.statsChartCardTitle}>
 							<Text style={styles.statsChartCardTitleText}>
-								Tonnage Lifted
+								Total Tonnage
 							</Text>
 						</View>
 						<View style={styles.workoutTitle}>
@@ -28,7 +34,7 @@ export default class GLobalStats extends Component {
 								size={24}
 								color="#fff"
 							/>
-							<Text style={styles.workoutTitleText}>224560</Text>
+							<Text style={styles.workoutTitleText}>43 060</Text>
 							<Text style={styles.workoutUnits}>kg</Text>
 						</View>
 						<View style={styles.statsChartCardChart} />
@@ -46,9 +52,9 @@ export default class GLobalStats extends Component {
 								/>
 							</View>
 							<View style={styles.statsInfo}>
-								<Text style={styles.statsNumber}>72</Text>
+								<Text style={styles.statsNumber}>40</Text>
 								<Text style={styles.statsCompletedText}>
-									workouts completed
+									times performed
 								</Text>
 							</View>
 						</View>
@@ -62,12 +68,9 @@ export default class GLobalStats extends Component {
 								/>
 							</View>
 							<View style={styles.statsInfo}>
-								<Text style={styles.statsNumber}>
-									224560
-									<Text style={styles.statsUnits}>kg</Text>
-								</Text>
+								<Text style={styles.statsNumber}>224560</Text>
 								<Text style={styles.statsTonnageLiftedText}>
-									tonnage lifted
+									repetitions done
 								</Text>
 							</View>
 						</View>
@@ -77,7 +80,7 @@ export default class GLobalStats extends Component {
 							<View style={styles.statsIcon}>
 								<Icon
 									style={styles.icon}
-									name="progress-clock"
+									name="clock-outline"
 									size={24}
 									color="#fff"
 								/>
@@ -90,7 +93,7 @@ export default class GLobalStats extends Component {
 								<Text
 									style={styles.statsAvgWorkoutDurationText}
 								>
-									avg workout duration
+									times spent
 								</Text>
 							</View>
 						</View>
@@ -119,18 +122,18 @@ export default class GLobalStats extends Component {
 							<View style={styles.statsIcon}>
 								<Icon
 									style={styles.icon}
-									name="scale-bathroom"
+									name="dumbbell"
 									size={24}
 									color="#fff"
 								/>
 							</View>
 							<View style={styles.statsInfo}>
 								<Text style={styles.statsNumber}>
-									77
+									130
 									<Text style={styles.statsUnits}>kg</Text>
 								</Text>
 								<Text style={styles.statsCurrentWeightText}>
-									current weight
+									best results
 								</Text>
 							</View>
 						</View>
@@ -138,114 +141,21 @@ export default class GLobalStats extends Component {
 							<View style={styles.statsIcon}>
 								<Icon
 									style={styles.icon}
-									name="map-marker-distance"
+									name="check"
 									size={24}
 									color="#fff"
 								/>
 							</View>
 							<View style={styles.statsInfo}>
-								<Text style={styles.statsNumber}>
-									56
-									<Text style={styles.statsUnits}>km</Text>
-								</Text>
+								<Text style={styles.statsNumber}>130*4</Text>
 								<Text style={styles.statsDistanceDoneText}>
-									distance done
-								</Text>
-							</View>
-						</View>
-					</View>
-					<View style={styles.stats}>
-						<View style={styles.statsLiftingTimeSpent}>
-							<View style={styles.statsIcon}>
-								<Icon
-									style={styles.icon}
-									name="clock-outline"
-									size={24}
-									color="#fff"
-								/>
-							</View>
-							<View style={styles.statsInfo}>
-								<Text style={styles.statsNumber}>
-									92
-									<Text style={styles.statsUnits}>h</Text>
-								</Text>
-								<Text style={styles.statsLiftingTimeSpentText}>
-									lifting time spent
-								</Text>
-							</View>
-						</View>
-						<View style={styles.statsRunningTimeSpent}>
-							<View style={styles.statsIcon}>
-								<Icon
-									style={styles.icon}
-									name="clock-outline"
-									size={24}
-									color="#fff"
-								/>
-							</View>
-							<View style={styles.statsInfo}>
-								<Text style={styles.statsNumber}>
-									07:22
-									<Text style={styles.statsUnits}>h</Text>
-								</Text>
-								<Text style={styles.statsRunningTimeSpentText}>
-									running time spent
+									best lift, kg * reps
 								</Text>
 							</View>
 						</View>
 					</View>
 				</View>
-				<View style={styles.keyLifts}>
-					<View style={styles.keyLiftsLabels}>
-						<Text style={styles.keyLiftsLabelText}>Key Lifts</Text>
-					</View>
-					<ScrollView
-						horizontal={true}
-						showsHorizontalScrollIndicator={false}
-					>
-						<View style={styles.keyLiftsCard}>
-							<View style={styles.keyLiftsCardTitle}>
-								<Text style={styles.keyLiftsCardTitleText}>
-									Bench Press
-								</Text>
-							</View>
-							<View style={styles.keyLiftsInfo}>
-								<Text style={styles.keyLiftsInfoText}>130</Text>
-								<Text style={styles.keyLiftsInfoTextSmall}>
-									kg
-								</Text>
-								<Text style={styles.keyLiftsInfoTextMiddle}>
-									*
-								</Text>
-								<Text style={styles.keyLiftsInfoText}>6</Text>
-								<Text style={styles.keyLiftsInfoTextSmall}>
-									reps
-								</Text>
-							</View>
-						</View>
-						<View style={styles.keyLiftsCard}>
-							<View style={styles.keyLiftsCardTitle}>
-								<Text style={styles.keyLiftsCardTitleText}>
-									Squats
-								</Text>
-							</View>
-							<View style={styles.keyLiftsInfo}>
-								<Text style={styles.keyLiftsInfoText}>100</Text>
-								<Text style={styles.keyLiftsInfoTextSmall}>
-									kg
-								</Text>
-								<Text style={styles.keyLiftsInfoTextMiddle}>
-									*
-								</Text>
-								<Text style={styles.keyLiftsInfoText}>5</Text>
-								<Text style={styles.keyLiftsInfoTextSmall}>
-									reps
-								</Text>
-							</View>
-						</View>
-					</ScrollView>
-				</View>
-			</View>
+			</ScrollView>
 		);
 	}
 }

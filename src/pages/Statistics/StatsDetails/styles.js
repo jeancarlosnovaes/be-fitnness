@@ -30,6 +30,34 @@ const styles = StyleSheet.create({
 		color: "#fff",
 	},
 
+	tabs: {
+		flexDirection: "row",
+		marginHorizontal: 10,
+		borderBottomColor: "#979797",
+		borderBottomWidth: 1,
+	},
+
+	textTabsActive: {
+		marginRight: 20,
+		paddingVertical: 10,
+		fontStyle: "normal",
+		fontWeight: "normal",
+		fontSize: 15,
+		color: "#fff",
+		borderBottomColor: "#5063EE",
+		borderBottomWidth: 3,
+	},
+
+	textTabsInactive: {
+		marginRight: 20,
+		paddingVertical: 10,
+		fontStyle: "normal",
+		fontWeight: "normal",
+		fontSize: 15,
+		color: "#fff",
+		opacity: 0.7,
+	},
+
 	totalWeight: {
 		flexDirection: "row",
 		justifyContent: "flex-start",

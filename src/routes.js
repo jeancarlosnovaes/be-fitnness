@@ -18,6 +18,7 @@ import UnidadeMedida from "./pages/Intro/UnidadeMedida";
 import Home from "./pages/Home";
 import Statistics from "./pages/Statistics";
 import StatsDetails from "./pages/Statistics/StatsDetails";
+import ExerciseStatsDetails from "./pages/Statistics/ExerciseStatsDetails";
 import History from "./pages/History";
 import PlansLibrary from "./pages/PlansLibrary";
 import MyWorkouts from "./pages/MyWorkouts";
@@ -46,6 +47,7 @@ const StatsStack = createStackNavigator({
 		},
 	},
 	StatsDetails,
+	ExerciseStatsDetails,
 });
 
 const HistoryStack = createStackNavigator({
