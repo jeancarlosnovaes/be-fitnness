@@ -27,15 +27,16 @@ export default class StasDetails extends Component {
 		};
 	};
 
-	_handleTabPressed = () => {
-		const { showTabs } = this.state;
-		if (showTabs === 0 || showTabs === 1) {
-			this.setState({ showTabs: 2 });
-		} else if (showTabs === 1 || showTabs === 2) {
-			this.setState({ showTabs: 0 });
-		} else {
-			this.setState({ showTabs: 1 });
-		}
+	_handleTabPressed = value => {
+		this.setState({ showTabs: value });
+		// const { showTabs } = this.state;
+		// if (showTabs === 0 || showTabs === 1) {
+		// 	this.setState({ showTabs: 2 });
+		// } else if (showTabs === 1 || showTabs === 2) {
+		// 	this.setState({ showTabs: 0 });
+		// } else {
+		// 	this.setState({ showTabs: 1 });
+		// }
 	};
 
 	render() {
@@ -62,8 +63,8 @@ export default class StasDetails extends Component {
 				</View>
 				<View style={styles.tabs}>
 					<TouchableWithoutFeedback
-						activeOpacity={1}
-						onPress={this._handleTabPressed}
+						active={this.state.showTabs}
+						onPress={() => this._handleTabPressed(0)}
 						style={styles.buttonTab}
 					>
 						<Text
@@ -77,9 +78,9 @@ export default class StasDetails extends Component {
 						</Text>
 					</TouchableWithoutFeedback>
 					<TouchableWithoutFeedback
-						activeOpacity={1}
+						active={this.state.showTabs}
 						style={styles.buttonTab}
-						onPress={this._handleTabPressed}
+						onPress={() => this._handleTabPressed(1)}
 					>
 						<Text
 							style={
@@ -92,9 +93,9 @@ export default class StasDetails extends Component {
 						</Text>
 					</TouchableWithoutFeedback>
 					<TouchableWithoutFeedback
-						activeOpacity={1}
+						active={this.state.showTabs}
 						style={styles.buttonTab}
-						onPress={this._handleTabPressed}
+						onPress={() => this._handleTabPressed(2)}
 					>
 						<Text
 							style={
@@ -203,8 +204,7 @@ export default class StasDetails extends Component {
 							</View>
 						</View>
 					</View>
-				) : null}
-				{this.state.showTabs === 1 ? (
+				) : this.state.showTabs === 1 ? (
 					<View>
 						<View style={styles.chart} />
 						<View style={styles.label}>
@@ -255,8 +255,7 @@ export default class StasDetails extends Component {
 							</View>
 						</View>
 					</View>
-				) : null}
-				{this.state.showTabs === 2 ? (
+				) : (
 					<View>
 						<View style={styles.chart} />
 						<View style={styles.label}>
@@ -334,7 +333,7 @@ export default class StasDetails extends Component {
 							</View>
 						</View>
 					</View>
-				) : null}
+				)}
 			</ScrollView>
 		);
 	}

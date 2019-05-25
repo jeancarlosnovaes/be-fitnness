@@ -17,6 +17,10 @@ export default class Home extends Component {
 		this.props.navigation.navigate("MyWorkouts");
 	};
 
+	_handleProfile = () => {
+		this.props.navigation.navigate("Profile");
+	};
+
 	render() {
 		return (
 			<ScrollView
@@ -28,7 +32,7 @@ export default class Home extends Component {
 					<View style={styles.buttonView}>
 						<TouchableOpacity
 							style={styles.button}
-							onPress={() => {}}
+							onPress={this._handleProfile}
 						>
 							<Icon
 								name="account"

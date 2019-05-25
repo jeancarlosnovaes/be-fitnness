@@ -22,6 +22,7 @@ import ExerciseStatsDetails from "./pages/Statistics/ExerciseStatsDetails";
 import History from "./pages/History";
 import PlansLibrary from "./pages/PlansLibrary";
 import MyWorkouts from "./pages/MyWorkouts";
+import Profile from "./pages/Profile";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -36,7 +37,7 @@ const HomeStack = createStackNavigator({
 	// WorkoutsDetails,
 	// ExerciseDetails,
 	// PreviewsWorkouts,
-	// Profile,
+	Profile,
 });
 
 const StatsStack = createStackNavigator({
