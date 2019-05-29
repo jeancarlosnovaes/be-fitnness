@@ -374,6 +374,103 @@ const styles = StyleSheet.create({
 		color: "#fff",
 		textTransform: "uppercase",
 	},
+
+	// Modal
+	header: {
+		backgroundColor: "#23253A",
+		paddingHorizontal: 20,
+		paddingVertical: 20,
+	},
+
+	buttomTop: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+	},
+
+	text: {
+		color: "#5063EE",
+	},
+
+	title: {
+		paddingVertical: 10,
+	},
+
+	titleText: {
+		color: "#fff",
+		fontStyle: "normal",
+		fontWeight: "500",
+		fontSize: 30,
+		lineHeight: 41,
+		letterSpacing: 0.41,
+	},
+
+	smallTextTitle: {
+		color: "#fff",
+		fontStyle: "normal",
+		fontWeight: "300",
+		fontSize: 14,
+		lineHeight: 17,
+		color: "#fff",
+		opacity: 0.7,
+	},
+
+	searchAndFilter: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+	},
+
+	inputArea: {
+		flexDirection: "row",
+		height: 30,
+		borderColor: "#5063EE",
+		borderWidth: 1,
+		marginVertical: 10,
+		// margin: 5,
+	},
+
+	input: {
+		padding: 5,
+		width: 200,
+	},
+
+	searchIcon: {
+		padding: 5,
+	},
+
+	buttomFilter: {
+		marginVertical: 10,
+	},
+
+	list: {
+		marginHorizontal: 10,
+	},
+
+	exercise: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+		borderBottomColor: "#DFDFE6",
+		borderBottomWidth: 1,
+		paddingVertical: 10,
+	},
+
+	exerciseTitleAndGroup: {
+		flexDirection: "row",
+		justifyContent: "space-around",
+	},
+
+	exerciseTitle: {
+		fontStyle: "normal",
+		fontWeight: "500",
+		fontSize: 18,
+		lineHeight: 22,
+		color: "#23253A",
+		paddingVertical: 15,
+		paddingHorizontal: 10,
+	},
+
+	checkbox: {
+		marginVertical: 15,
+	},
 });
 
 export default styles;

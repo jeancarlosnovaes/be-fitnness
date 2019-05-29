@@ -1,5 +1,14 @@
 import React, { Component } from "react";
-import { View, ScrollView, Text, TouchableOpacity } from "react-native";
+import {
+	View,
+	ScrollView,
+	Text,
+	TouchableOpacity,
+	TextInput,
+	Modal,
+	Image,
+	CheckBox,
+} from "react-native";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -13,12 +22,30 @@ const data = [
 ];
 
 export default class Home extends Component {
+	state = {
+		modalVisible: false,
+		checked: false,
+	};
+
 	_handleMyWorkouts = () => {
 		this.props.navigation.navigate("MyWorkouts");
 	};
 
 	_handleProfile = () => {
 		this.props.navigation.navigate("Profile");
+	};
+
+	_setModalVisible = () => {
+		this.setState({ modalVisible: !this.state.modalVisible });
+	};
+
+	_createWorkout = () => {
+		this.props.navigation.navigate("AddSets");
+		this._setModalVisible();
+	};
+
+	_handleCheckBox = () => {
+		this.setState({ checked: !this.state.checked });
 	};
 
 	render() {
@@ -156,13 +183,178 @@ export default class Home extends Component {
 				</View>
 				<View style={styles.createWorkouts}>
 					<TouchableOpacity
-						onPress={() => {}}
+						onPress={() => {
+							this._setModalVisible();
+						}}
 						style={styles.buttonCreateWorkouts}
 					>
 						<Text style={styles.buttonCreateWorkoutsText}>
 							Create Workouts
 						</Text>
 					</TouchableOpacity>
+					<Modal
+						animationType="slide"
+						transparent={false}
+						visible={this.state.modalVisible}
+						onRequestClose={() => {
+							Alert.alert("Modal has been closed.");
+						}}
+					>
+						<View style={styles.container}>
+							<View style={styles.header}>
+								<View style={styles.buttomTop}>
+									<TouchableOpacity
+										onPress={() => {
+											this._setModalVisible();
+										}}
+									>
+										<Icon
+											name="close"
+											size={24}
+											color="#5063EE"
+										/>
+									</TouchableOpacity>
+									<TouchableOpacity
+										onPress={() => {
+											this._createWorkout();
+										}}
+									>
+										<Text style={styles.text}>Next</Text>
+									</TouchableOpacity>
+								</View>
+								<View style={styles.title}>
+									<Text style={styles.titleText}>
+										Add Exercises
+									</Text>
+									<Text style={styles.smallTextTitle}>
+										Workout creation
+									</Text>
+								</View>
+								<View style={styles.searchAndFilter}>
+									<View style={styles.inputArea}>
+										<Icon
+											style={styles.searchIcon}
+											name="magnify"
+											size={20}
+											color="#5063EE"
+										/>
+										<TextInput
+											onChangeText={() => {}}
+											placeholder="Search"
+											placeholderTextColor="#9595A7"
+											autoCorrect={false}
+											underlineColorAndroid="transparent"
+											style={styles.input}
+										/>
+									</View>
+
+									<TouchableOpacity
+										style={styles.buttomFilter}
+										onPress={() => {}}
+									>
+										<Icon
+											name="tune"
+											size={24}
+											color="#5063EE"
+										/>
+									</TouchableOpacity>
+								</View>
+							</View>
+
+							<View style={styles.list}>
+								<View style={styles.exercise}>
+									<View style={styles.exerciseTitleAndGroup}>
+										<Image
+											source={require("../../assets/Exercises/BenchPress/bench-press.png")}
+										/>
+										<Text style={styles.exerciseTitle}>
+											Bench Press
+										</Text>
+									</View>
+									<CheckBox
+										value={this.state.checked}
+										disabled={false}
+										onValueChange={() => {
+											this._handleCheckBox();
+										}}
+										style={styles.checkbox}
+									/>
+								</View>
+								<View style={styles.exercise}>
+									<View style={styles.exerciseTitleAndGroup}>
+										<Image
+											source={require("../../assets/Exercises/BenchPress/bench-press.png")}
+										/>
+										<Text style={styles.exerciseTitle}>
+											Bench Press
+										</Text>
+									</View>
+									<CheckBox
+										value={this.state.checked}
+										disabled={false}
+										onValueChange={() => {
+											this._handleCheckBox();
+										}}
+										style={styles.checkbox}
+									/>
+								</View>
+								<View style={styles.exercise}>
+									<View style={styles.exerciseTitleAndGroup}>
+										<Image
+											source={require("../../assets/Exercises/BenchPress/bench-press.png")}
+										/>
+										<Text style={styles.exerciseTitle}>
+											Bench Press
+										</Text>
+									</View>
+									<CheckBox
+										value={this.state.checked}
+										disabled={false}
+										onValueChange={() => {
+											this._handleCheckBox();
+										}}
+										style={styles.checkbox}
+									/>
+								</View>
+								<View style={styles.exercise}>
+									<View style={styles.exerciseTitleAndGroup}>
+										<Image
+											source={require("../../assets/Exercises/BenchPress/bench-press.png")}
+										/>
+										<Text style={styles.exerciseTitle}>
+											Bench Press
+										</Text>
+									</View>
+									<CheckBox
+										value={this.state.checked}
+										disabled={false}
+										onValueChange={() => {
+											this._handleCheckBox();
+										}}
+										style={styles.checkbox}
+									/>
+								</View>
+								<View style={styles.exercise}>
+									<View style={styles.exerciseTitleAndGroup}>
+										<Image
+											source={require("../../assets/Exercises/BenchPress/bench-press.png")}
+										/>
+										<Text style={styles.exerciseTitle}>
+											Bench Press
+										</Text>
+									</View>
+									<CheckBox
+										value={this.state.checked}
+										disabled={false}
+										onValueChange={() => {
+											this._handleCheckBox();
+										}}
+										style={styles.checkbox}
+									/>
+								</View>
+							</View>
+						</View>
+					</Modal>
 				</View>
 			</ScrollView>
 		);
