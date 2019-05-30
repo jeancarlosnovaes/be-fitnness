@@ -48,6 +48,10 @@ export default class Home extends Component {
 		this.setState({ checked: !this.state.checked });
 	};
 
+	_handleShowExercise = () => {
+		this.props.navigation.navigate("ExerciseDetails");
+	};
+
 	render() {
 		return (
 			<ScrollView
@@ -262,7 +266,12 @@ export default class Home extends Component {
 							</View>
 
 							<View style={styles.list}>
-								<View style={styles.exercise}>
+								<TouchableOpacity
+									onPress={() => {
+										this._handleShowExercise();
+									}}
+									style={styles.exercise}
+								>
 									<View style={styles.exerciseTitleAndGroup}>
 										<Image
 											source={require("../../assets/Exercises/BenchPress/bench-press.png")}
@@ -279,7 +288,7 @@ export default class Home extends Component {
 										}}
 										style={styles.checkbox}
 									/>
-								</View>
+								</TouchableOpacity>
 								<View style={styles.exercise}>
 									<View style={styles.exerciseTitleAndGroup}>
 										<Image

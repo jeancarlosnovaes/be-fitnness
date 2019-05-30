@@ -24,6 +24,7 @@ import PlansLibrary from "./pages/PlansLibrary";
 import MyWorkouts from "./pages/MyWorkouts";
 import Profile from "./pages/Profile";
 import AddSets from "./components/AddSets";
+import ExerciseDetails from "./pages/ExerciseDetails";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -39,6 +40,7 @@ const HomeStack = createStackNavigator({
 	// ExerciseDetails,
 	// PreviewsWorkouts,
 	Profile,
+	ExerciseDetails,
 	AddSets,
 });
 
